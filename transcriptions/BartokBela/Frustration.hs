@@ -8,15 +8,17 @@ addDur d xs = line $ map (\n -> n d) xs
 -- Frustration, by Béla Bartók
 
 lowVoice =
-  let v1 = addDur en [ d 3, a 3, ef 3, gs 3 ]
-      v2 = addDur en [ f 3, c 4, gf 3, b 3 ]
-      v3 = addDur en [ f 3, c 4, fs 3, b 3
-                     , gs 3, cs 4, as 3, e 4 ]
-      v4 = addDur en [ g 3, d 4, af 3, cs 4
-                     , g 3, d 4, af 3, c 4 ]
-      section1 = timesM 11 v1 :+: addDur en [ d 3, a 3, e 3, bf 3 ] -- bars 1-6
-      section2 = timesM 4 v2  :+: v3 :+: v4                         -- bars 7-10
+  let eighths = addDur en
+      section1 = let ostinato = eighths [ d 3, a 3, ef 3, gs 3 ]
+                 in timesM 11 ostinato :+: eighths [ d 3, a 3, e 3, bf 3 ] -- bars 1-6
+      section2 = let ostinato = timesM 4 (eighths [ f 3, c 4, gf 3, b 3 ])
+                     varied = eighths [ f 3, c 4, fs 3, b 3
+                                      , gs 3, cs 4, as 3, e 4
+                                      , g 3, d 4, af 3, cs 4
+                                      , g 3, d 4, af 3, c 4 ]
+                 in ostinato :+: varied                                   -- bars 7-10
   in  section1 :+: section2
+
 highVoice = 
   let line1 xs n1 n2 n3 n4 n5 n6 n7 =
          addDur hn xs :+:
