@@ -9,8 +9,8 @@ addDur d = line . map (\n -> n d)
 
 lowVoice =
   let eighths = addDur en
-      section1 = let ostinato = eighths [ d 3, a 3, ef 3, gs 3 ]
-                 in timesM 11 ostinato :+: eighths [ d 3, a 3, e 3, bf 3 ] -- bars 1-6
+      section1 = let ostinato = timesM 11 $ eighths [ d 3, a 3, ef 3, gs 3 ]
+                 in ostinato :+: eighths [ d 3, a 3, e 3, bf 3 ] -- bars 1-6
       section2 = let ostinato = timesM 4 (eighths [ f 3, c 4, gf 3, b 3 ])
                      varied = eighths [ f 3, c 4, fs 3, b 3
                                       , gs 3, cs 4, as 3, e 4
