@@ -2,8 +2,7 @@ module Frustration where
 import Euterpea
 import Euterpea.Music.Note.Music
 
-addDur :: Dur -> [Dur -> Music a] -> Music a
-addDur d xs = line $ map (\n -> n d) xs
+addDur d = line . map (\n -> n d)
 
 -- Frustration, by Béla Bartók
 
