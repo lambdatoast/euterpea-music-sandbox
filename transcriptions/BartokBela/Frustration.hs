@@ -23,7 +23,9 @@ lowVoice =
                                        , e 3, a 3, af 3, c 4 ]
                      varied2 = timesM 2 (eighths [ ef 3, bf 3, g 3, df 4 ])
                  in ostinato1 :+: ostinato2 :+: varied1 :+: varied2
-  in  section1 :+: section2 :+: section3
+      section4 = let ostinato = timesM 8 (eighths [ d 3, a 3, ef 3, gs 3 ])
+                 in ostinato
+  in  section1 :+: section2 :+: section3 :+: section4
 
 highVoice = 
   let line1 xs n1 n2 n3 n4 n5 n6 n7 =
