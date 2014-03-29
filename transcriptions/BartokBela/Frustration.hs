@@ -41,11 +41,16 @@ highVoice =
       s1and2 = let m1 = line1 [ f 4, b 4, d 5, b 4 ] (f 4) (e 4) (a 4) (g 4) (f 4) (e 4) (d 4)
                    m2 = line1 [ a 4, d 5, f 5, d 5 ] (a 4) (gs 4) (e 5) (d 5) (c 5) (b 4) (bf 4)
                in rest (2 * wn) :+: m1 :+: m2 -- bars 1-10
-      s3 = let m3 = line [ bf 4 hn, e  5 hn, g 5 wn
-                         , g  4 hn, df 5 hn, f 5 wn
-                         , a  4 hn, b  4 hn ]
-           in m3
-  in s1and2 :+: s3
+      s3 = line [ bf 4 hn, e  5 hn, g 5 wn
+                , g  4 hn, df 5 hn, f 5 wn ]
+      ending = line [ a 4  hn, b 4 hn
+                    , d 5  qn, c 5 en, b 4 en
+                    , d 5 dhn, c 5 en, b 4 en
+                    , d 5  en, b 4 en, f 4 hn
+                    , d 5  en, b 4 en, f 4 dqn, e 4 en
+                    , a 4  (wn + qn)
+                    , g 4  en, f 4 en, e 4 dqn, d 4 en ]
+  in s1and2 :+: s3 :+: ending
 
 frustration :: Music Pitch
 frustration = let t = 69 / 120
